@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山东齐鲁技工学校教务处 - 官方网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background: linear-gradient(135deg, rgba(15, 76, 129, 0.95) 0%, rgba(79, 172, 254, 0.95) 100%), url('./assets/hero-campus.jpg') center/cover no-repeat;
+            color: white;
+            padding: 0.9rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            backdrop-filter: saturate(120%) blur(6px);
+            background-position: center 20%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-left: 0;
+            color: #ffffff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 0 2px rgba(0, 0, 0, 0.4);
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.25);
+            letter-spacing: 3px;
+            font-family: 'LiSu', 'STLiti', '隶书', 'Kaiti SC', 'KaiTi', serif;
+            line-height: 1.2;
+        }
+        
+        .logo-icon {
+            font-size: 1.6rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* 主视觉区域 */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35)), url('./assets/hero-campus.jpg') center/cover no-repeat;
+            height: 56vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 1.8rem;
+            position: relative;
+            overflow: hidden;
+            background-position: center 35%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(79, 172, 254, 0.3));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h2 {
+            font-size: 2.6rem;
+            margin-bottom: 0.9rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #ff5252 0%, #ff6b6b 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 82, 82, 0.6);
+        }
+
+        /* Hero区域按钮样式 */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .hero-embed-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-embed-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.6);
+            background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+        }
+
+        .hero-embed-btn i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* 内容区域通用样式 */
+        section {
+            padding: 3.2rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: white;
+            font-size: 2.8rem;
+            position: relative;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f);
+            margin: 15px auto;
+            border-radius: 3px;
+            box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+        }
+        
+        /* 教务信息 */
+        .about {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 4rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
+        }
+        
+        .about p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #2c3e50;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        /* 新闻动态 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .news-item {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f);
+        }
+        
+        .news-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-item h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .news-item p {
+            color: #5a6c7d;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        .news-date {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(79, 172, 254, 0.1));
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        /* 教务审核 */
+        .resources {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resources::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
+        }
+        
+        .resource-text {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+        
+        .resource-link {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        
+        .embed-btn {
+            background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .embed-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .embed-btn:hover::before {
+            left: 100%;
+        }
+        
+        .embed-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.6);
+        }
+        
+        .embed-btn i {
+            margin-right: 8px;
+        }
+        
+        .embedded-content {
+            margin-top: 2.5rem;
+            width: 100%;
+            height: 600px;
+            border: 2px solid rgba(79, 172, 254, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: none;
+            background: white;
+            position: relative;
+        }
+
+        .embedded-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
+        }
+        
+        #embedded-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 18px;
+        }
+        
+        /* 特色区域 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #667eea, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-item h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: #5a6c7d;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: linear-gradient(135deg, #1a5f7a 0%, #159895 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #57c5b6;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #57c5b6;
+        }
+        
+        .links-list {
+            list-style: none;
+        }
+        
+        .links-list li {
+            margin-bottom: 1rem;
+        }
+        
+        .links-list a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .links-list a:hover {
+            color: #57c5b6;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 响应式设计 */
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* 滚动动画 */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.7rem 0;
+            }
+            .hero {
+                height: 48vh;
+                margin-bottom: 1.4rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            section {
+                padding: 2.4rem 0;
+            }
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                align-items: center;
+            }
+
+            .hero-embed-btn {
+                width: 100%;
+                max-width: 400px;
+                justify-content: center;
+            }
+            
+            .embedded-content {
+                height: 400px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 1.75rem;
+                letter-spacing: 2px;
+                -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.25);
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.4rem;
+                letter-spacing: 1px;
+                -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.25);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>厚德尚能，明礼强艺</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#resources">新闻公告</a></li>
+                    <li><a href="#contact">教务云平台</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主视觉区域 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>山东齐鲁技工学校</h2>
+            <p>教务处</p>
+            <div class="hero-buttons">
+                <button id="hero-embed-button" class="hero-embed-btn"><i class="fas fa-external-link-alt"></i>查看教务处云平台</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 教务信息 -->
+        <section id="about" class="about">
+            <h2 class="section-title">学校宗旨</h2>
+            <p></p>
+            <p>培养具有军人品质，工匠精神的高素质、高技能、应用型人才！</p>
+        </section>
+
+        <!-- 特色区域 -->
+        <section class="features">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>优质课程</h3>
+                <p>全面而丰富的课程体系，注重共享教学、统一标准、融合师资，推动实验班课程、模式及培养规格升级，提供衔接优质高教资源的培养环境</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>优秀师资</h3>
+                <p>经验丰富的教师团队，结合优质高校资源，“双师型”学科带头人、骨干教师驻班教学，与高校师资形成“理论-实践”闭环教学。
+                </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h3>先进设施</h3>
+                <p>以配套完善的实习实验设备为支点，让每一份理论认知都能落地为实操能力，每一项技能训练都能对接企业真实需求。</p>
+            </div>
+        </section>
+
+        <!-- 新闻动态 -->
+        <section id="news" class="news">
+            <h2 class="section-title">新闻公告</h2>
+            <div class="news-grid">
+                <div class="news-item">
+                    <h3>教材发放日</h3>
+                    <p>2025级新生教材发放，请班主任做好统计工作。</p>
+                    <div class="news-date">2025年9月1日</div>
+                </div>
+                <div class="news-item">
+                    <h3>日常课堂巡查</h3>
+                    <p>每日对各教学部门进行巡查</p>
+                    <div class="news-date">2025年9月1日</div>
+                </div>
+                <div class="news-item">
+                    <h3>教务云平台上线</h3>
+                    <p>教务云平台正式上线，一键线上审核记录教材数据。</p>
+                    <div class="news-date">2025年9月1日</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资源区域 - 包含内嵌网页链接 -->
+        <section id="resources" class="resources">
+            <h2 class="section-title">教务处云平台</h2>
+            <p class="resource-text">以下是教务处云平台，点击按钮进入：</p>
+            <div class="resource-link">
+                <button id="embed-button" class="embed-btn"><i class="fas fa-external-link-alt"></i>查看教务处云平台</button>
+            </div>
+            <div id="embedded-content" class="embedded-content">
+                <iframe id="embedded-frame" src="https://p57031.eofficeoa.com"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 山东省济南市起步区顺安路9号</li>
+                        <li><i class="fas fa-phone"></i>0531-55603149</li>
+                        <li><i class="fas fa-envelope"></i>https://www.qljsxy.cn</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul class="links-list">
+                        <li><a href="#news">新闻动态</a></li>
+                        <li><a href="#resources">教务审核</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <p>关注我们的社交媒体，获取最新动态</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-weixin fa-2x"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-weibo fa-2x"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-qq fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 山东齐鲁技工学校教务处. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动导航
+        document.querySelectorAll('nav a, .btn[href="#about"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 滚动动画效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.feature-item, .news-item, .about, .resources').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 页面加载完成后的动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+        
+        // 内嵌网页链接功能
+        const embedButton = document.getElementById('embed-button');
+        const heroEmbedButton = document.getElementById('hero-embed-button');
+        const embeddedContent = document.getElementById('embedded-content');
+        const embeddedFrame = document.getElementById('embedded-frame');
+        
+        // 这里使用教育部官网作为示例，实际应用中可替换为学校需要的网址
+        const externalUrl = 'https://p57031.eofficeoa.com';
+        
+        // Hero区域按钮功能
+        heroEmbedButton.addEventListener('click', function() {
+            // 滚动到资源区域
+            const resourcesSection = document.getElementById('resources');
+            resourcesSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // 显示内嵌内容
+            embeddedFrame.src = externalUrl;
+            embeddedContent.style.display = 'block';
+            
+            // 更新原始按钮状态
+            embedButton.innerHTML = '<i class="fas fa-times"></i>隐藏资源平台';
+        });
+        
+        embedButton.addEventListener('click', function() {
+            if (embeddedContent.style.display === 'none') {
+                // 显示内嵌内容
+                embeddedFrame.src = externalUrl;
+                embeddedContent.style.display = 'block';
+                embedButton.innerHTML = '<i class="fas fa-times"></i>隐藏资源平台';
+            } else {
+                // 隐藏内嵌内容
+                embeddedFrame.src = 'about:blank';
+                embeddedContent.style.display = 'none';
+                embedButton.innerHTML = '<i class="fas fa-external-link-alt"></i>查看教务处云平台';
+            }
+        });
+    </script>
+</body>
+</html>
