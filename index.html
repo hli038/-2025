@@ -117,6 +117,7 @@
             position: relative;
             overflow: hidden;
             background-position: center 35%;
+            padding-top: 2rem; /* 让标题整体更靠近导航栏下方一点 */
         }
 
         .hero::before {
@@ -135,6 +136,7 @@
             z-index: 2;
             max-width: 900px;
             animation: fadeInUp 1s ease-out;
+            margin-top: 1rem; /* 细微下移 */
         }
         
         .hero-content {
@@ -142,18 +144,27 @@
         }
         
         .hero h2 {
-            font-size: 2.6rem;
+            font-size: 3rem;
             margin-bottom: 0.9rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            font-family: 'LiSu', 'STLiti', '隶书', 'Kaiti SC', 'KaiTi', serif;
+            -webkit-text-stroke: 1.2px rgba(0, 0, 0, 0.25);
+            text-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.55),
+                0 0 18px rgba(255, 255, 255, 0.18),
+                2px 2px 0 rgba(0, 0, 0, 0.15);
         }
         
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.5rem; /* 放大“教务处”字号 */
             margin-bottom: 1.4rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            opacity: 0.95;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.65);
+            -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.2);
+            opacity: 0.98;
         }
         
         .btn {
@@ -429,7 +440,8 @@
         .embedded-content {
             margin-top: 2.5rem;
             width: 100%;
-            height: 600px;
+            height: 80vh;
+            min-height: 600px;
             border: 2px solid rgba(79, 172, 254, 0.3);
             border-radius: 20px;
             overflow: hidden;
@@ -646,12 +658,13 @@
             .hero {
                 height: 48vh;
                 margin-bottom: 1.4rem;
+                padding-top: 1.4rem;
             }
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.4rem;
             }
             .hero p {
-                font-size: 1rem;
+                font-size: 1.3rem;
                 margin-bottom: 1rem;
             }
             section {
@@ -690,7 +703,8 @@
             }
             
             .embedded-content {
-                height: 400px;
+                height: 70vh;
+                min-height: 500px;
             }
             
             .section-title {
